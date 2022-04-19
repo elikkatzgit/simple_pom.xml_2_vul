@@ -11,16 +11,29 @@ pool:
 
 steps:
   - task: WhiteSource@21
+
     displayName: WhiteSource
+
     inputs:
+
       cwd: '$(System.DefaultWorkingDirectory)'
+
       scanReportTimeout: 45
-      configuration: | 
+
+      configuration: |
+
         npm.resolveDependencies=false
+
         npm.includeDevDependencies=false
+
         npm.runPreStep=false
+
         nuget.resolveDependencies=false
+
         nuget.restoreDependencies=false
+
         nuget.ignoreSourceFiles=true
+
         nuget.runPreStep=true=false  
+
         excludes=**/*.tgz
