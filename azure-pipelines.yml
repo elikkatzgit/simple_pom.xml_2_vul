@@ -20,7 +20,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: whitesource.WhiteSource-azure-devops-services.bolt.wss.WhiteSource@21
+- task: WhiteSource@21
   displayName: WhiteSource
   inputs:
     cwd: '$(System.DefaultWorkingDirectory)'
