@@ -10,27 +10,17 @@ pool:
   vmImage: windows-latest
 
 steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
-- task: WhiteSource@21
-  displayName: WhiteSource
-  inputs:
-    cwd: '$(System.DefaultWorkingDirectory)'
-    configuration: |
-     projectTag="Elik:Belik"
-     npm.resolveDependencies=false
-     npm.includeDevDependencies=false
-     npm.runPreStep=false
-     nuget.resolveDependencies=false
-     nuget.restoreDependencies=false
-     nuget.ignoreSourceFiles=true
-     nuget.runPreStep=true=false 
-    scanReportTimeout: 30
+  - task: WhiteSource@21
+    displayName: WhiteSource
+    inputs:
+      cwd: '$(System.DefaultWorkingDirectory)'
+      scanReportTimeout: 45
+      configuration: |
+        npm.resolveDependencies=false
+        npm.includeDevDependencies=false
+        npm.runPreStep=false
+        nuget.resolveDependencies=false
+        nuget.restoreDependencies=false
+        nuget.ignoreSourceFiles=true
+        nuget.runPreStep=true=false  
+        excludes=**/*.tgz
