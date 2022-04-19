@@ -15,7 +15,7 @@ steps:
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
       scanReportTimeout: 45
-      configuration: |
+      configuration: | 
         npm.resolveDependencies=false
         npm.includeDevDependencies=false
         npm.runPreStep=false
