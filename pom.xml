@@ -10,12 +10,6 @@
     <dependencies>
         <!-- Necessary for DirectoryScanner for globbing the dependency directory -->
         <dependency>
-            <groupId>org.apache.ant</groupId>
-            <artifactId>ant</artifactId>
-            <version>1.9.4</version>
-        </dependency>
-
-        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
